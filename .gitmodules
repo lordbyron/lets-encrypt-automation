@@ -1,0 +1,6 @@
+[submodule "letsencrypt.sh"]
+	path = letsencrypt.sh
+	url = https://github.com/lukas2511/letsencrypt.sh
+[submodule "letsencrypt-cloudflare-hook"]
+	path = letsencrypt-cloudflare-hook
+	url = https://github.com/kappataumu/letsencrypt-cloudflare-hook
