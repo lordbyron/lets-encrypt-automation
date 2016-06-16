@@ -53,7 +53,7 @@ $alt_string
 EOF
 #print $cron;
 
-my $scriptfile = "$domain-cron.sh";
+my $scriptfile = "$here/scripts/$domain-cron.sh";
 
 (! -e $scriptfile || $force) or die "File $scriptfile already exists. Try --force";
 

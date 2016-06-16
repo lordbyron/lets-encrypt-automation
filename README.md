@@ -24,7 +24,7 @@ This single repo is used for all our lets-encrypt cert generation and automation
 
 ```
 $ ./make.pl static.envoy.com -a dashboard.static.envoy.com -a web.static.envoy.com
-$ cat static.envoy.com-cron.sh
+$ cat scripts/static.envoy.com-cron.sh
 #!/bin/bash
 set -x
 /Users/chrisb/work/lets-encrypt-automation/letsencrypt.sh/letsencrypt.sh \
@@ -35,10 +35,10 @@ set -x
   --challenge dns-01 \
   --hook '/Users/chrisb/work/lets-encrypt-automation/letsencrypt-cloudflare-hook/hook.py'
 
-$ ./static.envoy.com-cron.sh
+$ CF_EMAIL=chris@envoy.com CF_KEY=K9uX2HyUjeWg5AhAb sh scripts/static.envoy.com-cron.sh
 ... [verify output] ...
 
-$ CF_EMAIL=chris@envoy.com CF_KEY=K9uX2HyUjeWg5AhAb ./install.pl static.envoy.com-cron.sh
+$ CF_EMAIL=chris@envoy.com CF_KEY=K9uX2HyUjeWg5AhAb ./install.pl scripts/static.envoy.com-cron.sh
 Installing crontab. Note that this appends the cron and does not delete old installations.
 ```
 
