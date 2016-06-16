@@ -4,8 +4,8 @@ use strict;
 use warnings;
 
 use Getopt::Long qw(GetOptions);
-use File::Temp qw/ tempfile tempdir /;
-use File::Spec;
+use File::Temp 'tempfile';
+use Cwd 'abs_path';
 
 sub usage() {
   print "Given a script, install into cron. Expects CF_EMAIL and CF_KEY env vars to be set.\n";
@@ -21,7 +21,7 @@ if ($help || scalar(@ARGV) != 1) {
   usage();
 }
 
-my $scriptfile = File::Spec->rel2abs($ARGV[0]);
+my $scriptfile = abs_path($ARGV[0]);
 print "$scriptfile\n";
 
 die "When installing cron, must set CF_EMAIL env var" unless defined $ENV{'CF_EMAIL'};
